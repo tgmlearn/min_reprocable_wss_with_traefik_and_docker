@@ -1,0 +1,12 @@
+FROM python:3.9
+
+RUN apt-get install mysql-community-client
+
+RUN pip install asgiref boto3 botocore Django Jinja2 jmespath MarkupSafe numpy pandas python-dateutil pytz PyYAML render s3transfer six sqlparse tzdata urllib3 asyncio websockets channels mysqlclient mysql-connector-python bcrypt python-dotenv cryptography mysql
+RUN pip install daphne
+
+COPY . /frontend
+
+WORKDIR /frontend
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]

@@ -1,0 +1,45 @@
+<head>
+  <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script type = "text/css" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"></script>
+  <script type="text/javascript">
+
+    const colorSocket = new WebSocket(
+          "ws://" + window.location.host + "/ws/endpoint/chat/"
+      );
+
+      colorSocket.onopen = function() {
+          console.log("Connected! (" + this.readyState + ")");
+      }
+
+      colorSocket.onmessage = function (message) {
+
+              console.log(message)
+
+              if (message.data.includes('red'))
+              {
+                get_job = 0;
+                console.log("we got red ");
+                let colour_box = document.getElementById('colour_box')
+                colour_box.style.backgroundColor = "red";
+              }
+              if (message.data.includes('blue'))
+              {
+                get_job = 0;
+                console.log("we got blue ");
+                let colour_box = document.getElementById('colour_box')
+                colour_box.style.backgroundColor = "blue";
+              }
+
+
+        }
+     </script>
+</head>
+
+
+  <body>
+        <div id = "colour_box" style="background-color:yellow; width:100px; height:100px;">
+
+        </div>
+
+
+  </body>

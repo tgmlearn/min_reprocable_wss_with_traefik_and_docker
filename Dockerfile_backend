@@ -1,0 +1,14 @@
+FROM python:3.9
+WORKDIR /backend
+ADD backend/backend_logs.txt .
+RUN apt-get update && apt-get install -y vim
+ADD backend/main.py .
+
+EXPOSE 8080
+EXPOSE 5672
+
+COPY settings.py ..
+
+RUN pip install web.py pika websockets asyncio
+
+CMD ["python", "./main.py" , "8000"]
