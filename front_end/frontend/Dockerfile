@@ -10,4 +10,4 @@ COPY . frontend
 
 
 ENTRYPOINT ["python", "frontend/manage.py"]
-CMD ["runserver", "0.0.0.0:8001"]
+CMD ["runserver", "0.0.0.0:80"]
