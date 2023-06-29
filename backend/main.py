@@ -30,7 +30,7 @@ async def heartbeat(websocket):
             print(9/0)
 
 async def SendSMS():
-    ws_url = 'wss://frontend:8000/ws/endpoint/chat/'
+    ws_url = 'wss://frontend:80/ws/endpoint/chat/'
     ws_url = 'ws://localhost:8000/ws/endpoint/chat/'
     print(str(ws_url)+ "  ====   url were using ")
     async with websockets.connect(ws_url, ping_interval=None) as websocket:
